@@ -12,6 +12,7 @@ Vagrant.configure("2") do |config|
     vb.customize ["modifyvm", :id, "--memory", "2048"]
   end
   config.omnibus.chef_version = :latest
+  #config.berkshelf.enabled = true
   config.vm.provision :chef_client do |chef|
       chef.chef_server_url = "https://api.opscode.com/organizations/eyetys"
       chef.validation_key_path = "./.chef/eyetys-validator.pem"

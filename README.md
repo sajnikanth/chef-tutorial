@@ -45,3 +45,26 @@ These are some notes I made based on the videos:
 * `vagrant provision` to converge the node
 
 * * *
+
+#### Create a cookbook (Video 19 to 20.5)
+
+Skipping this section; created saj_cookbook but delete all other cookbooks; kept just apt, mongo and nginx
+
+
+* * *
+
+#### Roles (Video 20.5)
+
+* Objective is to create a multi node environment
+	* base node - for runlists that are common across servers - `knife role create base`
+		* add `recipe[apt]` here
+	* now `knife node edit ubuntu`, remove `recipe[apt]` here and add `role[base]` instead
+	* this has to be added to our code base. so:
+		* `mkdir roles`
+		* `knife role show base -Fj > roles/base.json`
+	* to create a role and upload via knife:
+		* first add a role like `database.json`
+		* `knife role from file roles/database.json`
+		* now we can add this to runlist like so - `knife node run_list add ubuntu "role[database]"`
+
+

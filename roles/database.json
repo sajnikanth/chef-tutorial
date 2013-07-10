@@ -1,0 +1,15 @@
+{
+  "name": "database",
+  "description": "database server",
+  "json_class": "Chef::Role",
+  "default_attributes": {
+  },
+  "override_attributes": {
+  },
+  "chef_type": "role",
+  "run_list": [
+    "recipe[mongodb::10gen_repo]"
+  ],
+  "env_run_lists": {
+  }
+}
