@@ -67,4 +67,10 @@ Skipping this section; created saj_cookbook but delete all other cookbooks; kept
 		* `knife role from file roles/database.json`
 		* now we can add this to runlist like so - `knife node run_list add ubuntu "role[database]"`
 
+#### Managing cookbooks using Berkshelf
 
+* Manually downloading cookbooks was getting painful; enter Berkshelf:
+	* Configure berkshelf - `berks configure --force`
+	* If there are SSL errors, edit `~/.berkshelf/config.json` and set ssl verify to false, like it is shown [here](https://github.com/RiotGames/berkshelf#ssl-errors)
+	* Install cookbooks - `berks install --path cookbooks/`
+	* `vagrant up`
